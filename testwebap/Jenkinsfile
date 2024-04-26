@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the source code from your SCM
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build the Maven project using Windows batch command
+                bat 'mvn clean package'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Run tests (if any) using Windows batch command
+                bat 'mvn test'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Deploy the artifact (if needed) using Windows batch command
+                // Example: Deploy to a remote server or artifact repository
+            }
+        }
+    }
+}
