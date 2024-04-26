@@ -21,13 +21,6 @@ pipeline {
                 // Run tests (if any) using Windows batch command
                 bat 'mvn test'
             }
-        }
-        
-        stage('Deploy') {
-            steps {
-                // Deploy the artifact (if needed) using Windows batch command
-                // Example: Deploy to a remote server or artifact repository
-            }
-        }
+        }      
     }
 }
