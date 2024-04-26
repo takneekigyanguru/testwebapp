@@ -14,15 +14,20 @@ pipeline {
         
         stage('Build') {
             steps {
-                // Build the Maven project using Windows batch command
-                bat 'mvn clean package'
+                // Build the Maven project using Windows batch command                
+                dir('testwebap') {
+                    bat 'mvn clean package'
+                }
+
             }
         }
         
         stage('Test') {
             steps {
                 // Run tests (if any) using Windows batch command
-                bat 'mvn test'
+                dir('testwebap') {
+                    bat 'mvn test'
+                }
             }
         }      
     }
